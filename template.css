@@ -99,13 +99,13 @@ img.rounded {
   -webkit-border-radius: 10px;
 }
 
-a:link,a:visited {
-  color: #1367a7;
+a {
+  color: #1772d0;
   text-decoration: none;
 }
-
-a:hover {
-  color: #208799;
+a:focus, a:hover {
+  color: #f09228;
+  text-decoration: none;
 }
 
 td.dl-link {
