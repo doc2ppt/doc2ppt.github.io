@@ -3,115 +3,115 @@
 <html>
 <head>
   <title>[AAAI'22] DOC2PPT</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-        
-        body {
-          width: 1200px;
-          margin: auto;
-          font-family: 'Nunito';
-          font-size: 18px;
-        }
-        a {
-          color: #1772d0;
-          text-decoration: none;
-        }
-        a:focus, a:hover {
-          color: #f09228;
-          text-decoration: none;
-        }
-        hr {
-          border: 0;
-          height: 1px;
-          background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-        }
-        th {
-          width: 130px;
-          font-size: 20px;
-          
-          position: sticky;
-          top: 0;
-          z-index: 1;
-          background: #eee;
-        }
-        th img {
-          display: block;
-          margin: auto;
-          width: 120px;
-        }
-        td {
-          width: 130px;
-          height: 100px;
-        }
-        td img {
-          display: block;
-          margin: auto;
-          width: 120px;
-        }
-    </style>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+    
+    body {
+      width: 1200px;
+      margin: auto;
+      font-family: 'Nunito';
+      font-size: 18px;
+    }
+    a {
+      color: #1772d0;
+      text-decoration: none;
+    }
+    a:focus, a:hover {
+      color: #f09228;
+      text-decoration: none;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+    th {
+      width: 130px;
+      font-size: 20px;
+      
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #eee;
+    }
+    th img {
+      display: block;
+      margin: auto;
+      width: 120px;
+    }
+    td {
+      width: 130px;
+      height: 100px;
+    }
+    td img {
+      display: block;
+      margin: auto;
+      width: 120px;
+    }
+  </style>
 </head>
 <body>
-    <br />
-    <center>
-      <h1 style="width: 640px;">DOC2PPT: Automatic Presentation Slide Deck Generation from Documents</h1>
-    </center>
-    <center style="font-size: 22px;">
-      <a href="https://tsujuifu.github.io/" target="_blank">Tsu-Jui Fu</a><sup>1</sup>&nbsp;&nbsp;
-      <a href="https://sites.cs.ucsb.edu/~william/" target="_blank">William Yang Wang</a><sup>1</sup>&nbsp;&nbsp;
-      <a href="http://alumni.media.mit.edu/~djmcduff/" target="_blank">Daniel McDuff</a><sup>2</sup>&nbsp;&nbsp;
-      <a href="http://people.csail.mit.edu/yalesong/home/" target="_blank">Yale Song</a><sup>2</sup>&nbsp;&nbsp;
-    </center>
-    <center style="font-size: 22px;">
-      <sup>1</sup>UC Santabarbara&nbsp;&nbsp;
-      <sup>2</sup>Microsoft Research&nbsp;&nbsp;
-    </center style="font-size: 22px;">
-    <center style="font-size: 22px;">
-      AAAI Conference on Artificial Intelligence (<b>AAAI</b>) 2022
-    </center>
-    <br />
-    <center >
-      <a href="https://tsujuifu.github.io/pubs/aaai22_doc2ppt.pdf" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://drive.google.com/file/d/1Cjc3Ae_knnMzjAIzg1sHc4jIEs1-5x7_/view?usp=sharing" target="_blank">[Dataset]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="./qual.html" target="_blank">[Qualitative Examples]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </center>
-    <br />
-    <center>
-      <img src="./imgs/qual-comb.png" style="width: 800px;" />
-    </center>
-    <br />
-    <center>
-      <h2>Abstract</h2>
-      <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
-        Creating presentation materials requires complex multimodal reasoning skills to summarize key concepts and arrange them in a logical and visually pleasing manner. Can machines learn to emulate this laborious process? We present a novel task and approach for document-to-slide generation. Solving this involves document summarization, image and text retrieval, and slide structure to arrange key elements in a form suitable for presentation. We propose a hierarchical sequence-to-sequence approach to tackle our task in an end-to-end manner. Our approach exploits the inherent structures within documents and slides and incorporates paraphrasing and layout prediction modules to generate slides. To help accelerate research in this domain, we release a dataset of about 6K paired documents and slide decks used in our experiments. We show that our approach outperforms strong baselines and produces slides with rich content and aligned imagery.
-      </p>
-    </center>
-    <br /><hr />
-    <center>
-      <h2>DOC2PPT</h2>
-      <img src="./imgs/doc2ppt.png" style="width: 400px;" />
-      <br /><br />
-      <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
-        We introduce a novel task of generating a slide deck froma document. This requires solving several challenges in the vision & language domain, e.g., visual-semantic embedding and multi-modal summarization. In addition, slides exhibit unique properties such as concise text (bullet points) and stylized layout. We propose an approach to solving DOC2PPT, tackling these challenges.
-      </p>
-    </center>
-    <br /><hr />
-    <center>
-      <h2>Overview</h2>
-      <img src="./imgs/overview.png" style="width: 400px;" />
-      <br /><br />
-      <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
-        DOC2PPT involves “reading” a document (i.e., encoding sentences and images) and summarizing it, paraphrasing the summarized sentences into a concise format suitable for slide presentation, and placing the chosen text and figures to appropriate locations in the output slides.
-      </p>
-    </center>
-    <br /><hr />
-    <center>
-      <h2>Dataset Preprocessing</h2>
-      <img src="./imgs/dataset.png" style="width: 600px;" />
-      <br /><br />
-      <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
-        We collect pairs of documents and the corresponding slide decks from academic proceedings. Our dataset contains PDF documents and slides in the JPEG image format. For the training and validation set, we automatically extract text and figures from them and perform matching to create document-to-slide correspon-dences at various levels. To ensure that our test set is clean and reliable, we use Amazon Mechanical Turk (AMT) and have humans perform image extraction and matching for the entire test set.
-      </p>
-    </center>
-    <br />
+  <br />
+  <center>
+    <h1 style="width: 640px;">DOC2PPT: Automatic Presentation Slide Deck Generation from Documents</h1>
+  </center>
+  <center style="font-size: 22px;">
+    <a href="https://tsujuifu.github.io/" target="_blank">Tsu-Jui Fu</a><sup>1</sup>&nbsp;&nbsp;
+    <a href="https://sites.cs.ucsb.edu/~william/" target="_blank">William Yang Wang</a><sup>1</sup>&nbsp;&nbsp;
+    <a href="http://alumni.media.mit.edu/~djmcduff/" target="_blank">Daniel McDuff</a><sup>2</sup>&nbsp;&nbsp;
+    <a href="http://people.csail.mit.edu/yalesong/home/" target="_blank">Yale Song</a><sup>2</sup>&nbsp;&nbsp;
+  </center>
+  <center style="font-size: 22px;">
+    <sup>1</sup>UC Santabarbara&nbsp;&nbsp;
+    <sup>2</sup>Microsoft Research&nbsp;&nbsp;
+  </center>
+  <center style="font-size: 22px;">
+    AAAI Conference on Artificial Intelligence (<b>AAAI</b>) 2022
+  </center>
+  <br />
+  <center >
+    <a href="https://tsujuifu.github.io/pubs/aaai22_doc2ppt.pdf" target="_blank">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://drive.google.com/file/d/1Cjc3Ae_knnMzjAIzg1sHc4jIEs1-5x7_/view?usp=sharing" target="_blank">[Dataset]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="./qual.html" target="_blank">[Qualitative Examples]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </center>
+  <br />
+  <center>
+    <img src="./imgs/qual-comb.png" style="width: 800px;" />
+  </center>
+  <br />
+  <center>
+    <h2>Abstract</h2>
+    <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
+      Creating presentation materials requires complex multimodal reasoning skills to summarize key concepts and arrange them in a logical and visually pleasing manner. Can machines learn to emulate this laborious process? We present a novel task and approach for document-to-slide generation. Solving this involves document summarization, image and text retrieval, and slide structure to arrange key elements in a form suitable for presentation. We propose a hierarchical sequence-to-sequence approach to tackle our task in an end-to-end manner. Our approach exploits the inherent structures within documents and slides and incorporates paraphrasing and layout prediction modules to generate slides. To help accelerate research in this domain, we release a dataset of about 6K paired documents and slide decks used in our experiments. We show that our approach outperforms strong baselines and produces slides with rich content and aligned imagery.
+    </p>
+  </center>
+  <br /><hr />
+  <center>
+    <h2>DOC2PPT</h2>
+    <img src="./imgs/doc2ppt.png" style="width: 400px;" />
+    <br /><br />
+    <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
+      We introduce a novel task of generating a slide deck froma document. This requires solving several challenges in the vision & language domain, e.g., visual-semantic embedding and multi-modal summarization. In addition, slides exhibit unique properties such as concise text (bullet points) and stylized layout. We propose an approach to solving DOC2PPT, tackling these challenges.
+    </p>
+  </center>
+  <br /><hr />
+  <center>
+    <h2>Overview</h2>
+    <img src="./imgs/overview.png" style="width: 400px;" />
+    <br /><br />
+    <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
+      DOC2PPT involves “reading” a document (i.e., encoding sentences and images) and summarizing it, paraphrasing the summarized sentences into a concise format suitable for slide presentation, and placing the chosen text and figures to appropriate locations in the output slides.
+    </p>
+  </center>
+  <br /><hr />
+  <center>
+    <h2>Dataset Preprocessing</h2>
+    <img src="./imgs/dataset.png" style="width: 600px;" />
+    <br /><br />
+    <p style="width: 600px; margin: 0 auto; text-align: justify; text-justify: inter-ideograph;">
+      We collect pairs of documents and the corresponding slide decks from academic proceedings. Our dataset contains PDF documents and slides in the JPEG image format. For the training and validation set, we automatically extract text and figures from them and perform matching to create document-to-slide correspon-dences at various levels. To ensure that our test set is clean and reliable, we use Amazon Mechanical Turk (AMT) and have humans perform image extraction and matching for the entire test set.
+    </p>
+  </center>
+  <br />
 </body>
 </html>
